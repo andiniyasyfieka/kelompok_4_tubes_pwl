@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-2xl text-gray-800 dark:text-gray-200 leading-tight">
+        <h2 class="font-semibold text-2xl text-white dark:text-gray-200 leading-tight">
             {{ __('Edit Barang Keluar') }}
         </h2>
     </x-slot>
@@ -14,6 +14,11 @@
                     <div>
                         <label for="id_transaksi" class="block text-sm font-medium text-gray-700">ID Transaksi</label>
                         <input type="text" name="id_transaksi" id="id_transaksi" value="{{ old('id_transaksi', $barang->id_transaksi) }}" 
+                            class="mt-1 px-4 py-2 border rounded-md w-full" required />
+                    </div>
+                    <div>
+                        <label for="tanggal" class="block text-sm font-medium text-gray-700">Tanggal</label>
+                        <input type="date" name="tanggal" id="tanggal" value="{{ old('tanggal', $barang->tanggal) }}" 
                             class="mt-1 px-4 py-2 border rounded-md w-full" required />
                     </div>
                     <div>

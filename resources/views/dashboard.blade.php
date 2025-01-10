@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-2xl text-gray-800 dark:text-gray-200 leading-tight">
+        <h2 class="font-semibold text-2xl text-white dark:text-gray-200 leading-tight">
             {{ __('Dashboard') }}
         </h2>
         <div class="flex items-center mt-4">
@@ -16,17 +16,26 @@
                     <h3 class="text-lg font-semibold">Data Barang</h3>
                 </div>
                 <div class="mt-4 bg-white text-black px-4 py-2 rounded-lg">
-                    <span>Jumlah: 50</span>
+                    <span>Jumlah: 15</span>
                 </div>
             </div>
 
             <!-- Card Stok Barang -->
             <div class="bg-yellow-500 text-white p-4 rounded-lg shadow-md flex flex-col justify-between" data-name="Stok Barang">
                 <div>
-                    <h3 class="text-lg font-semibold">Stok Barang</h3>
+                    <h3 class="text-lg font-semibold">Stok Barang Masuk</h3>
                 </div>
                 <div class="mt-4 bg-white text-black px-4 py-2 rounded-lg">
-                    <span>Jumlah: 20</span>
+                    <span>Jumlah: 5</span>
+                </div>
+            </div>
+
+            <div class="bg-red-500 text-white p-4 rounded-lg shadow-md flex flex-col justify-between" data-name="Stok Barang">
+                <div>
+                    <h3 class="text-lg font-semibold">Stok Barang Keluar</h3>
+                </div>
+                <div class="mt-4 bg-white text-black px-4 py-2 rounded-lg">
+                    <span>Jumlah: 7</span>
                 </div>
             </div>
 
@@ -36,7 +45,7 @@
                     <h3 class="text-lg font-semibold">User</h3>
                 </div>
                 <div class="mt-4 bg-white text-black px-4 py-2 rounded-lg">
-                    <span>Jumlah: 10</span>
+                    <span>Jumlah: 1</span>
                 </div>
             </div>
         </div>

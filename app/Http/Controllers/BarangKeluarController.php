@@ -31,7 +31,10 @@ class BarangKeluarController extends Controller
             'jumlah_keluar' => 'required|integer',
         ]);
 
+        // Simpan data ke database
         BarangKeluar::create($validated);
+
+        // Redirect ke halaman index dengan pesan sukses
         return redirect()->route('barang-keluar.index')->with('success', 'Barang keluar berhasil ditambahkan.');
     }
 
@@ -44,27 +47,29 @@ class BarangKeluarController extends Controller
 
     // Update the specified Barang Keluar in the database
     public function update(Request $request, $id)
-    {
-        // Validate the request
-        $request->validate([
-            'id_transaksi' => 'required|string|max:255',
-            'id_barang' => 'required|string|max:255',
-            'nama_barang' => 'required|string|max:255',
-            'jumlah_keluar' => 'required|integer|min:1',
-        ]);
+{
+    // Validasi data yang dikirimkan
+    $request->validate([
+        'id_transaksi' => 'required|string|max:255',
+        'tanggal' => 'required|date', // Validasi tanggal
+        'id_barang' => 'required|string|max:255',
+        'nama_barang' => 'required|string|max:255',
+        'jumlah_keluar' => 'required|integer|min:1',
+    ]);
 
-        // Find the barang and update it
-        $barang = BarangKeluar::findOrFail($id);
-        $barang->update([
-            'id_transaksi' => $request->id_transaksi,
-            'id_barang' => $request->id_barang,
-            'nama_barang' => $request->nama_barang,
-            'jumlah_keluar' => $request->jumlah_keluar,
-        ]);
+    // Temukan data berdasarkan ID dan lakukan update
+    $barang = BarangKeluar::findOrFail($id);
+    $barang->update([
+        'id_transaksi' => $request->id_transaksi,
+        'tanggal' => $request->tanggal, // Update kolom tanggal
+        'id_barang' => $request->id_barang,
+        'nama_barang' => $request->nama_barang,
+        'jumlah_keluar' => $request->jumlah_keluar,
+    ]);
 
-        // Redirect back with a success message
-        return redirect()->route('barang-keluar.index')->with('success', 'Barang Keluar updated successfully!');
-    }
+    // Redirect kembali dengan pesan sukses
+    return redirect()->route('barang-keluar.index')->with('success', 'Barang Keluar berhasil diperbarui!');
+}
     public function destroy($id)
     {
         // Find the Barang Keluar by ID
@@ -76,4 +81,6 @@ class BarangKeluarController extends Controller
         // Redirect to the index page with a success message
         return redirect()->route('barang-keluar.index')->with('success', 'Barang Keluar deleted successfully!');
     }
+    
+    
 }
