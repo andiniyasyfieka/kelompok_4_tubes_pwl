@@ -1,12 +1,23 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-2xl text-gray-800 dark:text-gray-200 leading-tight">
+        <h2 class="font-semibold text-2xl text-white dark:text-gray-200 leading-tight">
             {{ __('Tambah Barang Keluar') }}
         </h2>
     </x-slot>
 
     <main class="flex-grow p-6 bg-gray-800">
         <div class="container mx-auto p-6 bg-white shadow-lg max-w-4xl">
+            <!-- Tampilkan error jika ada -->
+            @if ($errors->any())
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <form action="{{ route('barang-keluar.store') }}" method="POST">
                 @csrf
                 <div class="grid grid-cols-1 gap-6">

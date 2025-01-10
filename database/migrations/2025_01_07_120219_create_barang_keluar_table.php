@@ -14,6 +14,7 @@ class CreateBarangKeluarTable extends Migration
             $table->string('id_barang');
             $table->string('nama_barang');
             $table->integer('jumlah_keluar');
+            $table->date('tanggal')->after('id_transaksi');
             $table->timestamps();
         });
     }
@@ -21,5 +22,6 @@ class CreateBarangKeluarTable extends Migration
     public function down()
     {
         Schema::dropIfExists('barang_keluar');
+        $table->dropColumn('tanggal');
     }
 }

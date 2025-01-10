@@ -47,6 +47,12 @@
                             </div>
                         </div>
                     </div>
+                    <x-nav-link :href="route('transaksi.index')" :active="request()->routeIs('transaksi.index')">
+                        {{ __('Transaksi') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+                        {{ __('User') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -107,6 +113,12 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('items.index')" :active="request()->routeIs('items.index')">
                 {{ __('Stok Barang') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('transaksi.index')" :active="request()->routeIs('transaksi.index')">
+                {{ __('Transaksi') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+                {{ __('User') }}
             </x-responsive-nav-link>
         </div>
 
